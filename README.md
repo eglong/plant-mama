@@ -26,7 +26,7 @@ Before you begin, ensure that you have the following installed:
 3. Install the project dependencies using npm:
 
     ```sh
-    npm install
+    npm ci
     ```
 
 ## Development Mode
