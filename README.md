@@ -33,22 +33,16 @@ Before you begin, ensure that you have the following installed:
 
 Run the game locally in dev mode, use the following command:
 
-    ```sh
     npm run dev
-    ```
 
 This will start a local development server, adn you can access the game at:
 
-    ```sh
     http://localhost:1234
-    ```
 
 ## Production Build
 
 To build the game for production (minified and optimized), use the following command:
 
-    ```sh
     npm run build
-    ```
 
 This will create a dist/ folder with the production-ready files, which you can deploy to a web server.
