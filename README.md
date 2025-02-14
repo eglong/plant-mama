@@ -26,14 +26,14 @@ Before you begin, ensure that you have the following installed:
 3. Install the project dependencies using npm:
 
     ```sh
-    npm install
+    npm ci
     ```
 
 ## Development Mode
 
 Run the game locally in dev mode, use the following command:
 
-    npm run dev
+    npm start
 
 This will start a local development server, adn you can access the game at:
 

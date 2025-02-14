@@ -1,24 +1,17 @@
 import Phaser from 'phaser';
+import TitleScene from './scenes/TitleScene';
+import GameScene from './scenes/GameScene';
 
-var config = {
+const config = {
     type: Phaser.AUTO,
-    width: 800,
+    width: 600,
     height: 600,
-    backgroundColor: '#FCFFA4',
-    scene: {
-        preload: preload,
-        create: create,
-        update: update
+    backgroundColor: '#2d2d2d',
+    scene: [TitleScene, GameScene],
+    scale: {
+        autoCenter: Phaser.Scale.CENTER_BOTH,
     }
 };
 
-var game = new Phaser.Game(config);
-
-function preload () {
-}
-
-function create () {
-}
-
-function update () {
-}
+// Start the game with Phaser
+new Phaser.Game(config);
