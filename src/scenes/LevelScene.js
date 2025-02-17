@@ -44,7 +44,7 @@ export default class LevelScene extends Phaser.Scene {
         items.forEach(item => this.input.setDraggable(item))
 
         this.input.on('dragstart', (pointer, gameObject) => {
-            gameObject.setTint(0xffffff)
+            gameObject.setAlpha(0.5)
         })
 
         this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
