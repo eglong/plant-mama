@@ -26,7 +26,7 @@ export default class LevelScene extends Phaser.Scene {
     create() {
         // add background and flower pot
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'levelBackground').setOrigin(0.5).setDisplaySize(this.scale.width, this.scale.height)
-        this.pot = this.add.image(200, 500, 'pot').setOrigin(0.5, 0.5)
+        this.pot = this.add.image(275, 500, 'pot').setOrigin(0.5, 0.5)
 
         // array of draggable items
         const items = [
@@ -44,7 +44,7 @@ export default class LevelScene extends Phaser.Scene {
         items.forEach(item => this.input.setDraggable(item))
 
         this.input.on('dragstart', (pointer, gameObject) => {
-            gameObject.setTint(0xffffff)
+            gameObject.setAlpha(0.5)
         })
 
         this.input.on('drag', (pointer, gameObject, dragX, dragY) => {
@@ -53,7 +53,7 @@ export default class LevelScene extends Phaser.Scene {
         })
 
         this.input.on('dragend', (pointer, gameObject) => {
-            gameObject.clearTint()
+            gameObject.setAlpha(1)
             const index = items.indexOf(gameObject)
             gameObject.x = ogPositions[index].x
             gameObject.y = ogPositions[index].y
