@@ -1,13 +1,13 @@
-import Phaser from 'phaser';
-import TitleScene from './scenes/TitleScene';
-import LevelScene from './scenes/LevelScene';
-import SunScene from './scenes/SunScene'
+import Phaser from 'phaser'
+import TitleScene from './scenes/TitleScene'
+import LevelScene from './scenes/LevelScene'
+import FertScene from './scenes/FertilizerScene'
 
 const config = {
     type: Phaser.AUTO,
     width: 623,
     height: 648,
-    scene: [TitleScene, SunScene],
+    scene: [TitleScene, LevelScene, FertScene],
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH,
     }

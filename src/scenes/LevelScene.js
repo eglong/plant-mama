@@ -24,18 +24,22 @@ export default class LevelScene extends Phaser.Scene {
     }
 
     create() {
-        // add background and flower pot
+        // add background
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'levelBackground').setOrigin(0.5).setDisplaySize(this.scale.width, this.scale.height)
-        this.pot = this.add.image(275, 500, 'pot').setOrigin(0.5, 0.5)
 
+        const fertilizerButton = this.add.image(50, 200, 'fertilizer').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer', draggable: true })
+        this.pot = this.add.image(275, 500, 'pot').setOrigin(0.5, 0.5)
+        
         // array of draggable items
         const items = [
             this.sun = this.add.image(50, 50, 'sun').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer', draggable: true }),
             this.water = this.add.image(50, 130, 'watercan').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer', draggable: true }),
-            this.fertilizer = this.add.image(50, 200, 'fertilizer').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer', draggable: true }),
             this.seed = this.add.image(50, 260, 'seed').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer', draggable: true })
         ]
-        
+
+        fertilizerButton.on('pointerdown', () => {
+            this.scene.start('FertScene')
+        })
 
         // store og positions
         const ogPositions = items.map(item => ({ x: item.x, y: item.y }))
