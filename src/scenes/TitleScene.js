@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import startImg from '../assets/images/start-btn.png'
-import titleImg from '../assets/images/title-bg2.png'
+import titleImg from '../assets/images/title-bg.png'
 
 
 export default class TitleScene extends Phaser.Scene {
@@ -9,16 +9,12 @@ export default class TitleScene extends Phaser.Scene {
     }
 
     preload() {
-        // load start button
+        // load iamges
         this.load.image('background', titleImg)
         this.load.image('startButton', startImg)
     }
 
     create() {
-        this.game.scale.pageAlignHorizontally = true;
-        this.game.scale.pageAlignVertically = true;
-        this.game.scale.refresh();
-
         // add background image, centered
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'background')
             .setOrigin(0.5)
