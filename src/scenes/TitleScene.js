@@ -1,6 +1,6 @@
 import Phaser from 'phaser'
 import startImg from '../assets/images/start-btn.png'
-import titleImg from '../assets/images/title-bg.png'
+import titleImg from '../assets/images/title-bg2.png'
 
 
 export default class TitleScene extends Phaser.Scene {
@@ -15,26 +15,33 @@ export default class TitleScene extends Phaser.Scene {
     }
 
     create() {
+        this.game.scale.pageAlignHorizontally = true;
+        this.game.scale.pageAlignVertically = true;
+        this.game.scale.refresh();
+
         // add background image, centered
-        this.add.image(300, 300, 'background')
+        this.add.image(this.scale.width / 2, this.scale.height / 2, 'background')
             .setOrigin(0.5)
             .setDisplaySize(this.scale.width, this.scale.height)
 
         // add start button
-        const startButton = this.add.image(175, 385, 'startButton')
-            .setInteractive() // make clickable
-            .setScale(0.19)
+        const startButton = this.add.image(185, 450, 'startButton')
+            .setScale(.65)
+            .setInteractive({
+                userHandCursor: true,
+                pixelPerfect: true
+            }) // make clickable
         
         // add hover effect
         startButton.on('pointerover', () => {
-            startButton.setTint(0x99ff99)
+            startButton.setTint(0xffb70a)
         })
 
         startButton.on('pointerout', () => {
             startButton.clearTint();
         });
 
-        // Start the game on click
+        // start the game on click
         startButton.on('pointerdown', () => {
             this.scene.start('GameScene');
         });

@@ -4,8 +4,8 @@ import GameScene from './scenes/GameScene';
 
 const config = {
     type: Phaser.AUTO,
-    width: 600,
-    height: 600,
+    width: 623,
+    height: 648,
     backgroundColor: '#2d2d2d',
     scene: [TitleScene, GameScene],
     scale: {
@@ -14,4 +14,4 @@ const config = {
 };
 
 // Start the game with Phaser
-new Phaser.Game(config);
+const game = new Phaser.Game(config);
