@@ -2,7 +2,6 @@ import Phaser from 'phaser'
 import startImg from '../assets/images/start-btn.png'
 import titleBgImg from '../assets/images/title-bg.png'
 
-
 export default class TitleScene extends Phaser.Scene {
     constructor() {
         super({ key: 'TitleScene' })
@@ -32,7 +31,7 @@ export default class TitleScene extends Phaser.Scene {
 
         // start the game on click
         startButton.on('pointerdown', () => {
-            this.scene.start('GameScene');
+            this.scene.start('LevelScene');
         });
     }
 }

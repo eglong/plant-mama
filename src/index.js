@@ -1,13 +1,12 @@
 import Phaser from 'phaser';
 import TitleScene from './scenes/TitleScene';
-import GameScene from './scenes/GameScene';
+import LevelScene from './scenes/LevelScene';
 
 const config = {
     type: Phaser.AUTO,
     width: 623,
     height: 648,
-    backgroundColor: '#2d2d2d',
-    scene: [TitleScene, GameScene],
+    scene: [TitleScene, LevelScene],
     scale: {
         autoCenter: Phaser.Scale.CENTER_BOTH,
     }
