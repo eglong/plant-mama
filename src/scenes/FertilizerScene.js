@@ -40,7 +40,7 @@ export default class FertScene extends Phaser.Scene {
         this.countLeaf = 0;
         this.timer = 15;
         this.gameEnded = false;
-        this.countToWin = 3;
+        this.countToWin = 10;
 
         // Add background image
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'sunBackground')

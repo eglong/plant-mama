@@ -77,7 +77,7 @@ export default class WaterScene extends Phaser.Scene {
         // Variables for the falling leaves
         const fallDuration = 4000;
         const intervalTime = 500;
-        const countToWin = 2;
+        const countToWin = 12;
         const totalWater = 20;
         let waterCount = 0;
         // Function to make a leaf fall

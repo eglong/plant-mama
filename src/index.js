@@ -6,7 +6,7 @@ import WaterScene from './scenes/WaterScene'
 
 const config = {
     type: Phaser.AUTO,
-    width: 623,
+    width: 622,
     height: 648,
     scene: [TitleScene, LevelScene, FertScene, WaterScene],
     scale: {
