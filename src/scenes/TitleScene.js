@@ -31,7 +31,7 @@ export default class TitleScene extends Phaser.Scene {
 
         // start the game on click
         startButton.on('pointerdown', () => {
-            this.scene.start('LevelScene');
+            this.scene.start('SunScene');
         });
     }
 }
