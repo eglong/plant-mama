@@ -90,5 +90,11 @@ export default class SunScene extends Phaser.Scene {
             loop: true,
             repeat: totalLeaves - 1
         });
+
+        this.time.delayedCall(100, () => {
+            this.registry.set('fertAdded', true) 
+            this.scene.start('LevelScene')
+        }, [], this)
+        
     }
 }
