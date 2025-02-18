@@ -52,8 +52,7 @@ export default class LevelScene extends Phaser.Scene {
 
         // temporary
         this.water.on('pointerdown', () => {
-            this.registry.set('waterCollected', true)
-            this.checkItemCompletion()
+            this.scene.start('WaterScene')
         })
         this.sun.on('pointerdown', () => {
             this.registry.set('sunCollected', true)
@@ -77,6 +76,7 @@ export default class LevelScene extends Phaser.Scene {
                 this.seed.y = 465
                 this.registry.set('seedAdded', true)
                 this.seed.disableInteractive()
+                this.checkItemCompletion()
             } else {
                 this.seed.x = ogSeedPos.x
                 this.seed.y = ogSeedPos.y
@@ -106,25 +106,25 @@ export default class LevelScene extends Phaser.Scene {
         }
         if (this.registry.get('waterCollected') && this.registry.get('sunCollected') && this.registry.get('seedAdded') && this.registry.get('fertAdded')) {
             this.registry.set('plantStage', this.registry.get('plantStage') + 1)
-            console.log(this.registry.get('plantStage'))
-            this.growPlant()
-        }            
+            this.resetTaskStatus()
+        }
+        
+        // display correct plant stage
+        this.displayPlantStage()
     }
 
-    growPlant() {
+    displayPlantStage() {
         const plantStage = this.registry.get('plantStage')
         if (plantStage === 1) {
             this.seed.setVisible(false)
             this.plantOne.setVisible(true)
-            this.resetTaskStatus()
         } else if (plantStage === 2) {
             this.plantOne.setVisible(false)
             this.plantTwo.setVisible(true)
-            this.resetTaskStatus()
         } else if (plantStage === 3) {
             this.bg.setAlpha(0.5)
-            this.sun.disableInteractive()
-            this.water.disableInteractive()
+            this.sun.disableInteractive().setAlpha(0.5)
+            this.water.disableInteractive().setAlpha(0.5)
             this.add.text(this.scale.width / 2, this.scale.height / 2, 'You Win!', {
                 fontSize: '100px',
                 fill: '#000000',

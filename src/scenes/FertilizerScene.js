@@ -1,7 +1,7 @@
 import Phaser from 'phaser';
-import outsideImg from '../assets/images/leafImages/outside-bg.png'
-import aliveFlowerImg from '../assets/images/leafImages/alive flower.png'
-import basketImg from '../assets/images/leafImages/Basket.png'
+import outsideImg from '../assets/images/outside-bg.png'
+import aliveFlowerImg from '../assets/images/alive-flower.png'
+import basketImg from '../assets/images/basket.png'
 import Leaf1Img from '../assets/images/leafImages/Leaf 1.png'
 import Leaf2Img from '../assets/images/leafImages/Leaf 2.png'
 import Leaf3Img from '../assets/images/leafImages/Leaf 3.png'
@@ -13,13 +13,9 @@ import Leaf8Img from '../assets/images/leafImages/Leaf 8.png'
 import Leaf9Img from '../assets/images/leafImages/Leaf 9.png'
 import Leaf10Img from '../assets/images/leafImages/Leaf 10.png'
 
-export default class SunScene extends Phaser.Scene {
+export default class FertScene extends Phaser.Scene {
     constructor() {
         super({ key: 'FertScene' });
-        this.countLeaf = 0;  // Keep track of the number of leaves collected
-        this.timer = 12;  // Timer set to 10 seconds
-        this.timerEvent = null;  // Holds the timer event
-        this.gameEnded = false;  // Flag to check if the game has ended
     }
 
     preload() {
@@ -40,6 +36,12 @@ export default class SunScene extends Phaser.Scene {
     }
 
     create() {
+        // reset state variables 
+        this.countLeaf = 0;
+        this.timer = 15;
+        this.gameEnded = false;
+        this.countToWin = 3;
+
         // Add background image
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'sunBackground')
             .setOrigin(0.5)
@@ -48,6 +50,12 @@ export default class SunScene extends Phaser.Scene {
         // Create and store the basket image in a variable
         const basket = this.add.image(87, 512, 'basket')
             .setScale(1.000001);
+
+        // leaf counter
+        this.leafCounterText = this.add.text(20, 20, `Leaves: 0`, {
+            font: '32px Arial',
+            fill: '#000000'
+        });
 
         // Create a text object for the timer
         this.timerText = this.add.text(460, 20, `Time: ${this.timer}s`, {
@@ -99,8 +107,11 @@ export default class SunScene extends Phaser.Scene {
                     leaf.destroy(); // Remove the leaf from the scene
                     this.countLeaf++;  // Increase the count of collected leaves
 
+                    // update leaf counter
+                    this.leafCounterText.setText(`Leaves: ${this.countLeaf}`)
+
                     // Check if the player has collected enough leaves
-                    if (this.countLeaf >= 10 && this.timer == 0) {
+                    if (this.countLeaf >= this.countToWin) {
                         this.gameOver(true); // Win if 10 leaves collected
                     }
                 }
@@ -135,9 +146,27 @@ export default class SunScene extends Phaser.Scene {
 
         // Display win or lose message
         if (win) {
-            console.log("You have won the game ;)");
+            this.add.text(this.scale.width / 2, this.scale.height / 2, 'Fertilizer collected!', {
+                fontSize: '30px',
+                fill: '#000000',
+                fontStyle: 'bold'
+            }).setOrigin(0.5, 0.5)
+            
+            this.time.delayedCall(2000, () => { 
+                this.registry.set('fertAdded', true)
+                this.scene.start('LevelScene') 
+            }, [], this)
+
         } else {
-            console.log("You have lost the game :(");
+            this.add.text(this.scale.width / 2, this.scale.height / 2, 'You lost, try again later', {
+                fontSize: '30px',
+                fill: '#000000',
+                fontStyle: 'bold'
+            }).setOrigin(0.5, 0.5)
+
+            this.time.delayedCall(2000, () => { 
+                this.scene.start('LevelScene') 
+            }, [], this)
         }
     }
 }
