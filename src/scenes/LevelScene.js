@@ -10,7 +10,7 @@ import plantThreeImg from '../assets/images/plant-phase3.png'
 import flowerImg from '../assets/images/alive-flower.png'
 import sunImg from '../assets/images/sun.png'
 import soilImg from '../assets/images/soil.png'
-// import closedCurtainImg from '../assets/images/closed-curtain.png'
+import closedCurtainImg from '../assets/images/closed-curtain.png'
 import openCurtainImg from '../assets/images/open-curtain.png'
 
 export default class LevelScene extends Phaser.Scene {
@@ -31,15 +31,15 @@ export default class LevelScene extends Phaser.Scene {
         this.load.image('flower', flowerImg)
         this.load.image('sun', sunImg)
         this.load.image('soil', soilImg)
-        // this.load.image('closedCurtain', closedCurtainImg)
+        this.load.image('closedCurtain', closedCurtainImg)
         this.load.image('openCurtain', openCurtainImg)
     }
 
     create() {
         // add background and images
         this.bg = this.add.image(this.scale.width / 2, this.scale.height / 2, 'levelBackground').setOrigin(0.5).setDisplaySize(this.scale.width, this.scale.height)
-        // this.closedCurtain = this.add.image(x, y, 'closedCurtain').setOrigin(0.5, 0.5)
-        this.openCurtain = this.add.image(437, 270, 'openCurtain').setOrigin(0.5, 0.5).setVisible(true)
+        this.closedCurtain = this.add.image(435, 280, 'closedCurtain').setOrigin(0.5, 0.5).setScale(0.98)
+        this.openCurtain = this.add.image(437, 270, 'openCurtain').setOrigin(0.5, 0.5).setVisible(false)
         this.fertilizer = this.add.image(50, 200, 'fertilizer').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
         this.water = this.add.image(50, 130, 'watercan').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
         this.sun = this.add.image(50, 50, 'sun').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
@@ -64,14 +64,14 @@ export default class LevelScene extends Phaser.Scene {
         this.checkItemCompletion()
 
         this.fertilizer.on('pointerdown', () => {
-            this.registry.set('fertAdded', true)
-            this.checkItemCompletion()
-            // this.scene.start('FertScene')
+            // this.registry.set('fertAdded', true)
+            // this.checkItemCompletion()
+            this.scene.start('FertScene')
         })
         this.water.on('pointerdown', () => {
-            this.registry.set('waterCollected', true)
-            this.checkItemCompletion()
-            // this.scene.start('WaterScene')
+            // this.registry.set('waterCollected', true)
+            // this.checkItemCompletion()
+            this.scene.start('WaterScene')
         })
         // TODO: add curtain opening and then closing after the plant grows and sun resets
         this.sun.on('pointerdown', () => {
@@ -127,7 +127,7 @@ export default class LevelScene extends Phaser.Scene {
             this.sun.setAlpha(0.5)
             this.sun.disableInteractive()
             // open curtain
-            // this.closedCurtain.setVisible(false)
+            this.closedCurtain.setVisible(false)
             this.openCurtain.setVisible(true)
         }
         if (this.registry.get('waterCollected') && this.registry.get('sunCollected') && this.registry.get('seedAdded') && this.registry.get('fertAdded')) {
@@ -176,7 +176,7 @@ export default class LevelScene extends Phaser.Scene {
 
         // close curtain
         this.openCurtain.setVisible(false)
-        // this.closedCurtain.setVisible(true)
+        this.closedCurtain.setVisible(true)
     }
 
     displayWin() {
