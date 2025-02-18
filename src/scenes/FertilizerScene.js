@@ -141,5 +141,3 @@ export default class SunScene extends Phaser.Scene {
         }
     }
 }
-
-

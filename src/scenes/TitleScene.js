@@ -14,6 +14,13 @@ export default class TitleScene extends Phaser.Scene {
     }
 
     create() {
+        // initialize level and completion status
+        this.registry.set('seedAdded', false)
+        this.registry.set('fertAdded', false)
+        this.registry.set('waterCollected', false)
+        this.registry.set('sunCollected', false)
+        this.registry.set('plantStage', 0)
+
         // add background image, centered
         this.add.image(this.scale.width / 2, this.scale.height / 2, 'titleBackground').setOrigin(0.5).setDisplaySize(this.scale.width, this.scale.height)
 
@@ -31,7 +38,7 @@ export default class TitleScene extends Phaser.Scene {
 
         // start the game on click
         startButton.on('pointerdown', () => {
-            this.scene.start('SunScene');
+            this.scene.start('LevelScene');
         });
     }
 }
