@@ -1,16 +1,16 @@
 import Phaser from 'phaser';
-import outsideImg from '../assets/images/leafImages/outside-bg.png'
-import aliveFlowerImg from '../assets/images/leafImages/alive flower.png'
-import Leaf1Img from '../assets/images/leafImages/Leaf 1.png'
-import Leaf2Img from '../assets/images/leafImages/Leaf 2.png'
-import Leaf3Img from '../assets/images/leafImages/Leaf 3.png'
-import Leaf4Img from '../assets/images/leafImages/Leaf 4.png'
-import Leaf5Img from '../assets/images/leafImages/Leaf 5.png'
-import Leaf6Img from '../assets/images/leafImages/Leaf 6.png'
-import Leaf7Img from '../assets/images/leafImages/Leaf 7.png'
-import Leaf8Img from '../assets/images/leafImages/Leaf 8.png'
-import Leaf9Img from '../assets/images/leafImages/Leaf 9.png'
-import Leaf10Img from '../assets/images/leafImages/Leaf 10.png'
+import outsideImg from '../assets/images/sungame/outside-bg.png'
+import aliveFlowerImg from '../assets/images/sungame/alive flower.png'
+import Leaf1Img from '../assets/images/sungame/Leaf 1.png'
+import Leaf2Img from '../assets/images/sungame/Leaf 2.png'
+import Leaf3Img from '../assets/images/sungame/Leaf 3.png'
+import Leaf4Img from '../assets/images/sungame/Leaf 4.png'
+import Leaf5Img from '../assets/images/sungame/Leaf 5.png'
+import Leaf6Img from '../assets/images/sungame/Leaf 6.png'
+import Leaf7Img from '../assets/images/sungame/Leaf 7.png'
+import Leaf8Img from '../assets/images/sungame/Leaf 8.png'
+import Leaf9Img from '../assets/images/sungame/Leaf 9.png'
+import Leaf10Img from '../assets/images/sungame/Leaf 10.png'
 
 export default class SunScene extends Phaser.Scene {
     constructor() {
