@@ -11,7 +11,7 @@ import flowerImg from '../assets/images/alive-flower.png'
 import sunImg from '../assets/images/sun.png'
 import soilImg from '../assets/images/soil.png'
 // import closedCurtainImg from '../assets/images/closed-curtain.png'
-// import openCurtainImg from '../assets/images/open-curtain.png'
+import openCurtainImg from '../assets/images/open-curtain.png'
 
 export default class LevelScene extends Phaser.Scene {
     constructor() {
@@ -32,14 +32,14 @@ export default class LevelScene extends Phaser.Scene {
         this.load.image('sun', sunImg)
         this.load.image('soil', soilImg)
         // this.load.image('closedCurtain', closedCurtainImg)
-        // this.load.image('openCurtain', openCurtainImg)
+        this.load.image('openCurtain', openCurtainImg)
     }
 
     create() {
         // add background and images
         this.bg = this.add.image(this.scale.width / 2, this.scale.height / 2, 'levelBackground').setOrigin(0.5).setDisplaySize(this.scale.width, this.scale.height)
-        // this.closedCurtain = this.add.image(x, y, 'closedCuratin').setOrigin(0.5, 0.5)
-        // this.openCurtain = this.add.image(x, y, 'openCuratin').setOrigin(0.5, 0.5).setVisible(false)
+        // this.closedCurtain = this.add.image(x, y, 'closedCurtain').setOrigin(0.5, 0.5)
+        this.openCurtain = this.add.image(437, 270, 'openCurtain').setOrigin(0.5, 0.5).setVisible(true)
         this.fertilizer = this.add.image(50, 200, 'fertilizer').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
         this.water = this.add.image(50, 130, 'watercan').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
         this.sun = this.add.image(50, 50, 'sun').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
@@ -55,10 +55,9 @@ export default class LevelScene extends Phaser.Scene {
             y: this.seed.y
         }
 
-        this.add.text(340, 60, "Drag and drop the seed to plant.\nCollect fertilizer.\n\nP.S. Plants need plenty of sun\nand water to grow ;)", {
-            fontSize: '20px',
+        this.add.text(340, 55, "Drag and drop the seed to plant.\nCollect fertilizer.\n\nP.S. Plants need plenty of sun\nand water to grow ;)", {
+            fontSize: '18px',
             fill: '#000000',
-            fontStyle: 'bold'
         }).setOrigin(0.5, 0.5)
 
         // check if items have been added
@@ -129,7 +128,7 @@ export default class LevelScene extends Phaser.Scene {
             this.sun.disableInteractive()
             // open curtain
             // this.closedCurtain.setVisible(false)
-            // this.openCurtain.setVisible(true)
+            this.openCurtain.setVisible(true)
         }
         if (this.registry.get('waterCollected') && this.registry.get('sunCollected') && this.registry.get('seedAdded') && this.registry.get('fertAdded')) {
             this.registry.set('plantStage', this.registry.get('plantStage') + 1)
@@ -176,7 +175,7 @@ export default class LevelScene extends Phaser.Scene {
         this.sun.setAlpha(1).setInteractive({ cursor: 'pointer' })
 
         // close curtain
-        // this.openCurtain.setVisible(false)
+        this.openCurtain.setVisible(false)
         // this.closedCurtain.setVisible(true)
     }
 
@@ -187,13 +186,24 @@ export default class LevelScene extends Phaser.Scene {
             this.bg.setAlpha(0.5)
             this.sun.disableInteractive().setAlpha(0.5)
             this.water.disableInteractive().setAlpha(0.5)
-            this.add.text(this.scale.width / 2, this.scale.height / 2 - 30, 'You Win!', {
+            this.add.text(this.scale.width / 2, 165, 'You Win!', {
                 fontSize: '100px',
                 fill: '#000000',
                 fontStyle: 'bold',
                 stroke: '#FFFFFF',
                 strokeThickness: 5
             }).setOrigin(0.5, 0.5)
+
+            const restartButton = this.add.text(this.scale.width / 2, 250, 'Restart', {
+                fontSize: '30px',
+                fill: '#000000',
+                backgroundColor: '#FF8E0A',
+                padding: { x: 10, y: 10 }
+            }).setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
+            
+            restartButton.on('pointerdown', () => {
+                this.scene.start('TitleScene')
+            })
         }, [], this)
     }
 }
