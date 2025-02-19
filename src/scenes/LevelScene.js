@@ -38,8 +38,8 @@ export default class LevelScene extends Phaser.Scene {
     create() {
         // add background and images
         this.bg = this.add.image(this.scale.width / 2, this.scale.height / 2, 'levelBackground').setOrigin(0.5).setDisplaySize(this.scale.width, this.scale.height)
-        this.closedCurtain = this.add.image(435, 280, 'closedCurtain').setOrigin(0.5, 0.5).setScale(0.98)
-        this.openCurtain = this.add.image(437, 270, 'openCurtain').setOrigin(0.5, 0.5).setVisible(false)
+        this.closedCurtain = this.add.image(435, 280, 'closedCurtain').setOrigin(0.5, 0.5).setScale(0.96)
+        this.openCurtain = this.add.image(437, 284, 'openCurtain').setOrigin(0.5, 0.5).setVisible(false).setScale()
         this.fertilizer = this.add.image(50, 200, 'fertilizer').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
         this.water = this.add.image(50, 130, 'watercan').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
         this.sun = this.add.image(50, 50, 'sun').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
@@ -184,8 +184,7 @@ export default class LevelScene extends Phaser.Scene {
         this.sun.setAlpha(0.5).disableInteractive()
         this.time.delayedCall(1000, () => { 
             this.bg.setAlpha(0.5)
-            this.sun.disableInteractive().setAlpha(0.5)
-            this.water.disableInteractive().setAlpha(0.5)
+            this.openCurtain.setAlpha(0.5)
             this.add.text(this.scale.width / 2, 165, 'You Win!', {
                 fontSize: '100px',
                 fill: '#000000',
