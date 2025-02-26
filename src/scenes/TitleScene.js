@@ -7,8 +7,8 @@ export default class TitleScene extends Phaser.Scene {
 
     preload() {
         // load iamges
-        this.load.image('titleBackground', '/images/title-bg.png')
-        this.load.image('startButton', '/images/start-btn.png')
+        this.load.image('titleBackground', './images/title-bg.png')
+        this.load.image('startButton', './images/start-btn.png')
     }
 
     create() {

@@ -7,10 +7,10 @@ export default class WaterScene extends Phaser.Scene {
 
     preload() {
         // load images
-        this.load.image('WaterBackground', '/images/outside-bg.png')
-        this.load.image('waterBucket', '/images/water-bucket.png')
-        this.load.image('sunAliveFlower', '/images/alive-flower.png')
-        this.load.image('waterWater1', '/images/water.png')
+        this.load.image('WaterBackground', './images/outside-bg.png')
+        this.load.image('waterBucket', './images/water-bucket.png')
+        this.load.image('sunAliveFlower', './images/alive-flower.png')
+        this.load.image('waterWater1', './images/water.png')
     }
 
     create() {
