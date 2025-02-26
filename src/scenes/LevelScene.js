@@ -1,17 +1,4 @@
 import Phaser from 'phaser'
-import levelBgImg from '../assets/images/level-bg.png'
-import potImg from '../assets/images/plant-pot.png'
-import seedImg from '../assets/images/seed.png'
-import waterImg from '../assets/images/water-bucket.png'
-import fertilizerImg from '../assets/images/fertilizer.png'
-import plantOneImg from '../assets/images/plant-phase1.png'
-import plantTwoImg from '../assets/images/plant-phase2.png'
-import plantThreeImg from '../assets/images/plant-phase3.png'
-import flowerImg from '../assets/images/alive-flower.png'
-import sunImg from '../assets/images/sun.png'
-import soilImg from '../assets/images/soil.png'
-import closedCurtainImg from '../assets/images/closed-curtain.png'
-import openCurtainImg from '../assets/images/open-curtain.png'
 
 export default class LevelScene extends Phaser.Scene {
     constructor() {
@@ -20,19 +7,19 @@ export default class LevelScene extends Phaser.Scene {
 
     preload() {
         // load images
-        this.load.image('levelBackground', levelBgImg)
-        this.load.image('pot', potImg)
-        this.load.image('seed', seedImg)
-        this.load.image('watercan', waterImg)
-        this.load.image('fertilizer', fertilizerImg)
-        this.load.image('plantOne', plantOneImg)
-        this.load.image('plantTwo', plantTwoImg)
-        this.load.image('plantThree', plantThreeImg)
-        this.load.image('flower', flowerImg)
-        this.load.image('sun', sunImg)
-        this.load.image('soil', soilImg)
-        this.load.image('closedCurtain', closedCurtainImg)
-        this.load.image('openCurtain', openCurtainImg)
+        this.load.image('levelBackground', '/images/level-bg.png')
+        this.load.image('pot', '/images/plant-pot.png')
+        this.load.image('seed', '/images/seed.png')
+        this.load.image('watercan', '/images/water-bucket.png')
+        this.load.image('fertilizer', '/images/fertilizer.png')
+        this.load.image('plantOne', '/images/plant-phase1.png')
+        this.load.image('plantTwo', '/images/plant-phase2.png')
+        this.load.image('plantThree', '/images/plant-phase3.png')
+        this.load.image('flower', '/images/alive-flower.png')
+        this.load.image('sun', '/images/sun.png')
+        this.load.image('soil', '/images/soil.png')
+        this.load.image('closedCurtain', '/images/closed-curtain.png')
+        this.load.image('openCurtain', '/images/open-curtain.png')
     }
 
     create() {

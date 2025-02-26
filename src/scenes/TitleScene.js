@@ -1,6 +1,4 @@
 import Phaser from 'phaser'
-import startImg from '../assets/images/start-btn.png'
-import titleBgImg from '../assets/images/title-bg.png'
 
 export default class TitleScene extends Phaser.Scene {
     constructor() {
@@ -9,8 +7,8 @@ export default class TitleScene extends Phaser.Scene {
 
     preload() {
         // load iamges
-        this.load.image('titleBackground', titleBgImg)
-        this.load.image('startButton', startImg)
+        this.load.image('titleBackground', '/images/title-bg.png')
+        this.load.image('startButton', '/images/start-btn.png')
     }
 
     create() {
