@@ -7,19 +7,19 @@ export default class LevelScene extends Phaser.Scene {
 
     preload() {
         // load images
-        this.load.image('levelBackground', '/images/level-bg.png')
-        this.load.image('pot', '/images/plant-pot.png')
-        this.load.image('seed', '/images/seed.png')
-        this.load.image('watercan', '/images/water-bucket.png')
-        this.load.image('fertilizer', '/images/fertilizer.png')
-        this.load.image('plantOne', '/images/plant-phase1.png')
-        this.load.image('plantTwo', '/images/plant-phase2.png')
-        this.load.image('plantThree', '/images/plant-phase3.png')
-        this.load.image('flower', '/images/alive-flower.png')
-        this.load.image('sun', '/images/sun.png')
-        this.load.image('soil', '/images/soil.png')
-        this.load.image('closedCurtain', '/images/closed-curtain.png')
-        this.load.image('openCurtain', '/images/open-curtain.png')
+        this.load.image('levelBackground', './images/level-bg.png')
+        this.load.image('pot', './images/plant-pot.png')
+        this.load.image('seed', './images/seed.png')
+        this.load.image('watercan', './images/water-bucket.png')
+        this.load.image('fertilizer', './images/fertilizer.png')
+        this.load.image('plantOne', './images/plant-phase1.png')
+        this.load.image('plantTwo', './images/plant-phase2.png')
+        this.load.image('plantThree', './images/plant-phase3.png')
+        this.load.image('flower', './images/alive-flower.png')
+        this.load.image('sun', './images/sun.png')
+        this.load.image('soil', './images/soil.png')
+        this.load.image('closedCurtain', './images/closed-curtain.png')
+        this.load.image('openCurtain', './images/open-curtain.png')
     }
 
     create() {
