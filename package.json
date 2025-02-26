@@ -2,8 +2,9 @@
   "name": "plant-mama",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html --public-url ./"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "repository": {
     "type": "git",
@@ -18,8 +19,8 @@
   "description": "",
   "devDependencies": {
     "gh-pages": "^6.3.0",
-    "parcel": "^2.13.3",
-    "process": "^0.11.10"
+    "process": "^0.11.10",
+    "vite": "^6.2.0"
   },
   "dependencies": {
     "phaser": "^3.88.1"
