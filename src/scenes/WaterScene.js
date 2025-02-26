@@ -1,8 +1,4 @@
 import Phaser from 'phaser';
-import outsideImg from '../assets/images/outside-bg.png'
-import waterBucketImg from '../assets/images/water-bucket.png'
-import aliveFlowerImg from '../assets/images/alive-flower.png'
-import Water1Img from '../assets/images/water.png'
 
 export default class WaterScene extends Phaser.Scene {
     constructor() {
@@ -11,10 +7,10 @@ export default class WaterScene extends Phaser.Scene {
 
     preload() {
         // load images
-        this.load.image('WaterBackground', outsideImg)
-        this.load.image('waterBucket', waterBucketImg)
-        this.load.image('sunAliveFlower', aliveFlowerImg)
-        this.load.image('waterWater1', Water1Img)
+        this.load.image('WaterBackground', '/images/outside-bg.png')
+        this.load.image('waterBucket', '/images/water-bucket.png')
+        this.load.image('sunAliveFlower', '/images/alive-flower.png')
+        this.load.image('waterWater1', '/images/water.png')
     }
 
     create() {

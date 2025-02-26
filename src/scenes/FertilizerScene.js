@@ -1,17 +1,4 @@
 import Phaser from 'phaser';
-import outsideImg from '../assets/images/outside-bg.png'
-import aliveFlowerImg from '../assets/images/alive-flower.png'
-import basketImg from '../assets/images/basket.png'
-import Leaf1Img from '../assets/images/leafImages/Leaf 1.png'
-import Leaf2Img from '../assets/images/leafImages/Leaf 2.png'
-import Leaf3Img from '../assets/images/leafImages/Leaf 3.png'
-import Leaf4Img from '../assets/images/leafImages/Leaf 4.png'
-import Leaf5Img from '../assets/images/leafImages/Leaf 5.png'
-import Leaf6Img from '../assets/images/leafImages/Leaf 6.png'
-import Leaf7Img from '../assets/images/leafImages/Leaf 7.png'
-import Leaf8Img from '../assets/images/leafImages/Leaf 8.png'
-import Leaf9Img from '../assets/images/leafImages/Leaf 9.png'
-import Leaf10Img from '../assets/images/leafImages/Leaf 10.png'
 
 export default class FertScene extends Phaser.Scene {
     constructor() {
@@ -20,19 +7,19 @@ export default class FertScene extends Phaser.Scene {
 
     preload() {
         // Load images
-        this.load.image('sunBackground', outsideImg);
-        this.load.image('sunAliveFlower', aliveFlowerImg);
-        this.load.image('basket', basketImg);
-        this.load.image('sunLeaf1', Leaf1Img);
-        this.load.image('sunLeaf2', Leaf2Img);
-        this.load.image('sunLeaf3', Leaf3Img);
-        this.load.image('sunLeaf4', Leaf4Img);
-        this.load.image('sunLeaf5', Leaf5Img);
-        this.load.image('sunLeaf6', Leaf6Img);
-        this.load.image('sunLeaf7', Leaf7Img);
-        this.load.image('sunLeaf8', Leaf8Img);
-        this.load.image('sunLeaf9', Leaf9Img);
-        this.load.image('sunLeaf10', Leaf10Img);
+        this.load.image('sunBackground', '/images/outside-bg.png');
+        this.load.image('sunAliveFlower', '/images/alive-flower.png');
+        this.load.image('basket', '/images/basket.png');
+        this.load.image('sunLeaf1', '/images/leafImages/Leaf 1.png');
+        this.load.image('sunLeaf2', '/images/leafImages/Leaf 2.png');
+        this.load.image('sunLeaf3', '/images/leafImages/Leaf 3.png');
+        this.load.image('sunLeaf4', '/images/leafImages/Leaf 4.png');
+        this.load.image('sunLeaf5', '/images/leafImages/Leaf 5.png');
+        this.load.image('sunLeaf6', '/images/leafImages/Leaf 6.png');
+        this.load.image('sunLeaf7', '/images/leafImages/Leaf 7.png');
+        this.load.image('sunLeaf8', '/images/leafImages/Leaf 8.png');
+        this.load.image('sunLeaf9', '/images/leafImages/Leaf 9.png');
+        this.load.image('sunLeaf10', '/images/leafImages/Leaf 10.png');
     }
 
     create() {
