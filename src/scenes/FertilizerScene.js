@@ -141,7 +141,7 @@ export default class FertScene extends Phaser.Scene {
             
             this.time.delayedCall(2000, () => { 
                 this.registry.set('fertAdded', true)
-                this.scene.start('LevelScene') 
+                this.scene.start('GameScene') 
             }, [], this)
 
         } else {
@@ -152,7 +152,7 @@ export default class FertScene extends Phaser.Scene {
             }).setOrigin(0.5, 0.5)
 
             this.time.delayedCall(2000, () => { 
-                this.scene.start('LevelScene') 
+                this.scene.start('GameScene') 
             }, [], this)
         }
     }

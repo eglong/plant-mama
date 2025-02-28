@@ -1,8 +1,8 @@
 import Phaser from 'phaser'
 
-export default class LevelScene extends Phaser.Scene {
+export default class GameScene extends Phaser.Scene {
     constructor() {
-        super({ key: 'LevelScene' })
+        super({ key: 'GameScene' })
     }
 
     preload() {
@@ -24,9 +24,9 @@ export default class LevelScene extends Phaser.Scene {
 
     create() {
         // add background and images
-        this.bg = this.add.image(this.scale.width / 2, this.scale.height / 2, 'levelBackground').setOrigin(0.5).setDisplaySize(this.scale.width, this.scale.height)
-        this.closedCurtain = this.add.image(435, 280, 'closedCurtain').setOrigin(0.5, 0.5).setScale(0.96)
-        this.openCurtain = this.add.image(437, 284, 'openCurtain').setOrigin(0.5, 0.5).setVisible(false).setScale()
+        this.bg = this.add.image(0, 0, 'levelBackground').setOrigin(0).setDisplaySize(this.scale.width, this.scale.height)
+        this.closedCurtain = this.add.image(434, 267, 'closedCurtain').setOrigin(0.5, 0.5).setScale(0.90)
+        this.openCurtain = this.add.image(436, 276, 'openCurtain').setOrigin(0.5, 0.5).setVisible(false).setScale(0.96)
         this.fertilizer = this.add.image(50, 200, 'fertilizer').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
         this.water = this.add.image(50, 130, 'watercan').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
         this.sun = this.add.image(50, 50, 'sun').setOrigin(0.5, 0.5).setInteractive({ cursor: 'pointer' })
@@ -35,11 +35,15 @@ export default class LevelScene extends Phaser.Scene {
         this.plantTwo = this.add.image(275, 436, 'plantTwo').setOrigin(0.5, 0.5).setVisible(false).setScale(0.7)
         this.plantThree = this.add.image(272, 420, 'plantThree').setOrigin(0.5, 0.5).setVisible(false).setScale(0.35)
         this.flower = this.add.image(265, 430, 'flower').setOrigin(0.5, 0.5).setVisible(false).setScale(0.7)
-        this.soil = this.add.image(275, 469, 'soil').setOrigin(0.5, 0.5).setVisible(false)
-        this.pot = this.add.image(275, 500, 'pot').setOrigin(0.5, 0.5)
+        this.soil = this.add.image(270, 470, 'soil').setOrigin(0.5, 0.5).setVisible(false)
+        this.pot = this.add.image(270, 500, 'pot').setOrigin(0.5, 0.5)
         const ogSeedPos = {
             x: this.seed.x,
             y: this.seed.y
+        }
+        const pottedSeedPos = {
+            x: 270,
+            y: 466
         }
 
         this.add.text(340, 55, "Drag and drop the seed to plant.\nCollect fertilizer.\n\nP.S. Plants need plenty of sun\nand water to grow ;)", {
@@ -79,8 +83,8 @@ export default class LevelScene extends Phaser.Scene {
             gameObject.setAlpha(1)
 
             if (Phaser.Geom.Intersects.RectangleToRectangle(this.seed.getBounds(), this.pot.getBounds())) {
-                this.seed.x = 275
-                this.seed.y = 465
+                this.seed.x = 270
+                this.seed.y = 464
                 this.registry.set('seedAdded', true)
                 this.seed.disableInteractive()
                 this.checkItemCompletion()
@@ -98,8 +102,8 @@ export default class LevelScene extends Phaser.Scene {
         this.displayPlantStage()
 
         if (this.registry.get('seedAdded')) {
-            this.seed.x = 275
-            this.seed.y = 465
+            this.seed.x = 270
+            this.seed.y = 464
             this.seed.disableInteractive()
         }
         if (this.registry.get('fertAdded')) {
