@@ -20,7 +20,7 @@ const config = {
             height: 600
         }
     },
-    scene: [GameScene, FertScene, WaterScene],
+    scene: [MenuScene, GameScene, FertScene, WaterScene],
 };
 
 // Start the game with Phaser
