@@ -1,8 +1,8 @@
 import Phaser from 'phaser'
 
-export default class TitleScene extends Phaser.Scene {
+export default class MenuScene extends Phaser.Scene {
     constructor() {
-        super({ key: 'TitleScene' })
+        super({ key: 'MenuScene' })
     }
 
     preload() {
@@ -20,7 +20,7 @@ export default class TitleScene extends Phaser.Scene {
         this.registry.set('plantStage', 0)
 
         // add background image, centered
-        this.add.image(this.scale.width / 2, this.scale.height / 2, 'titleBackground').setOrigin(0.5).setDisplaySize(this.scale.width, this.scale.height)
+        this.add.image(0, 0, 'titleBackground').setOrigin(0).setDisplaySize(this.scale.width, this.scale.height)
 
         // add start button
         const startButton = this.add.image(185, 450, 'startButton').setScale(.65).setInteractive({ cursor: 'pointer', pixelPerfect: true })
@@ -36,7 +36,7 @@ export default class TitleScene extends Phaser.Scene {
 
         // start the game on click
         startButton.on('pointerdown', () => {
-            this.scene.start('LevelScene');
+            this.scene.start('GameScene');
         });
     }
 }
