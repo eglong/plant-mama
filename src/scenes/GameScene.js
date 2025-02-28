@@ -41,10 +41,6 @@ export default class GameScene extends Phaser.Scene {
             x: this.seed.x,
             y: this.seed.y
         }
-        const pottedSeedPos = {
-            x: 270,
-            y: 466
-        }
 
         this.add.text(340, 55, "Drag and drop the seed to plant.\nCollect fertilizer.\n\nP.S. Plants need plenty of sun\nand water to grow ;)", {
             fontSize: '18px',
