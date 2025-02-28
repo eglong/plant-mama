@@ -7,8 +7,8 @@ export default class FertScene extends Phaser.Scene {
 
     preload() {
         // Load images
-        this.load.image('sunBackground', './images/outside-bg.png');
-        this.load.image('sunAliveFlower', './images/alive-flower.png');
+        this.load.image('sunBackground', './images/backgrounds/outside-bg.png');
+        this.load.image('sunAliveFlower', './images/plantPhases/alive-flower.png');
         this.load.image('basket', './images/basket.png');
         this.load.image('sunLeaf1', './images/leafImages/Leaf 1.png');
         this.load.image('sunLeaf2', './images/leafImages/Leaf 2.png');
@@ -141,7 +141,7 @@ export default class FertScene extends Phaser.Scene {
             
             this.time.delayedCall(2000, () => { 
                 this.registry.set('fertAdded', true)
-                this.scene.start('LevelScene') 
+                this.scene.start('GameScene') 
             }, [], this)
 
         } else {
@@ -152,7 +152,7 @@ export default class FertScene extends Phaser.Scene {
             }).setOrigin(0.5, 0.5)
 
             this.time.delayedCall(2000, () => { 
-                this.scene.start('LevelScene') 
+                this.scene.start('GameScene') 
             }, [], this)
         }
     }

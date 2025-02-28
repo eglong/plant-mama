@@ -7,9 +7,9 @@ export default class WaterScene extends Phaser.Scene {
 
     preload() {
         // load images
-        this.load.image('WaterBackground', './images/outside-bg.png')
+        this.load.image('WaterBackground', './images/backgrounds/outside-bg.png')
         this.load.image('waterBucket', './images/water-bucket.png')
-        this.load.image('sunAliveFlower', './images/alive-flower.png')
+        this.load.image('sunAliveFlower', './images/plantPhases/alive-flower.png')
         this.load.image('waterWater1', './images/water.png')
     }
 
@@ -138,7 +138,7 @@ export default class WaterScene extends Phaser.Scene {
                     
                     this.time.delayedCall(2000, () => { 
                         this.registry.set('waterCollected', true)
-                        this.scene.start('LevelScene') 
+                        this.scene.start('GameScene') 
                     }, [], this)
                     
                 } else if (countNumCollected < countToWin && waterCount === totalWater) {
@@ -149,7 +149,7 @@ export default class WaterScene extends Phaser.Scene {
                     }).setOrigin(0.5, 0.5)
         
                     this.time.delayedCall(2000, () => { 
-                        this.scene.start('LevelScene') 
+                        this.scene.start('GameScene') 
                     }, [], this)
                 }
             },
