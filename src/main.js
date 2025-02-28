@@ -1,13 +1,13 @@
 import Phaser from 'phaser'
-import TitleScene from './scenes/TitleScene'
-import LevelScene from './scenes/LevelScene'
+import MenuScene from './scenes/MenuScene'
+import GameScene from './scenes/GameScene'
 import FertScene from './scenes/FertilizerScene'
 import WaterScene from './scenes/WaterScene'
 
 const config = {
     type: Phaser.AUTO,
-    width: 600,
-    height: 600,
+    width: 623,
+    height: 648,
     scale: {
         mode: Phaser.Scale.FIT,
         autoCenter: Phaser.Scale.CENTER_BOTH,
@@ -20,7 +20,7 @@ const config = {
             height: 600
         }
     },
-    scene: [TitleScene, LevelScene, FertScene, WaterScene],
+    scene: [MenuScene, GameScene, FertScene, WaterScene],
 };
 
 // Start the game with Phaser
